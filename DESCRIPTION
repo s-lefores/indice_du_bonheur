@@ -17,6 +17,9 @@ RoxygenNote: 7.3.2
 Imports: 
     here,
     utils,
-    readr
+    readr,
+    stringr,
+    tidyverse,
+    here
 Depends: 
     ggplot2
