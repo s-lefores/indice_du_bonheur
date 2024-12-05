@@ -1,3 +1,6 @@
+
+
+
 merge_csv_files <- function() {
 
 raw_folder <- here::here("data")
@@ -5,7 +8,7 @@ raw_folder <- here::here("data")
 
 raw_data_1 <- read.csv(file.path(raw_folder, "Data_Insee.csv"), header = TRUE, sep=";") 
 raw_data_2 <- read.csv(file.path(raw_folder, "Donnee_altitude_mer.csv"), header = TRUE, sep=";") 
-raw_data_3 <- read.csv(file.path(raw_folder, "donnee-delinquance.csv"), header = TRUE, sep=";") 
+raw_data_3 <- read.csv(file.path(raw_folder, "delinquance_reorganized.csv"), header = TRUE, sep=",") 
 raw_data_4 <- read.csv(file.path(raw_folder, "resultats-election.csv"), header = TRUE, sep=";") 
 raw_data_5 <- read.csv(file.path(raw_folder, "temps-densoleillement-par-an-par-departement.csv"), header = TRUE, sep=";")
 
@@ -33,5 +36,3 @@ merged_data <- raw_data_1 %>%
   
   return(merged_data)
 }
-
-
