@@ -1,0 +1,25 @@
+---
+title: "Presentation_indice_bonheur"
+format: html
+editor: visual
+---
+
+# Indice du bonheur \<3
+
+![](images/Happy_Smiley.png)
+
+### Objectif du projet
+
+Le but de ce projet est de generer un "indice du bonheur" en France Metropolitaine à partir de données variables extraites du Web (INSEE, data gouv,...)
+
+Celles-ci peuvent etre télechargées ici
+
+[Statistiques locales INSEE](https://statistiques-locales.insee.fr/#view=map1&c=indicator)
+
+[Data Gouv](https://www.data.gouv.fr/fr/)
+
+[Note: we love quarto dans l'équipe du bonheur, toute la doc est ici](https://quarto.org "#QuartoLove")
+
+## Fabrication de l'indi
+
+s
