@@ -1,16 +1,13 @@
-
-
-
 merge_csv_files <- function() {
 
-raw_folder <- here::here("data")
+cleaned_folder <- here::here("data","cleaned_data")
 
 
-raw_data_1 <- read.csv(file.path(raw_folder, "Data_Insee.csv"), header = TRUE, sep=";") 
-raw_data_2 <- read.csv(file.path(raw_folder, "Donnee_altitude_mer.csv"), header = TRUE, sep=";") 
-raw_data_3 <- read.csv(file.path(raw_folder, "delinquance_reorganized.csv"), header = TRUE, sep=",") 
-raw_data_4 <- read.csv(file.path(raw_folder, "data_election_reorganized.csv"), header = TRUE, sep=",") 
-raw_data_5 <- read.csv(file.path(raw_folder, "temps-densoleillement-par-an-par-departement.csv"), header = TRUE, sep=";")
+raw_data_1 <- read.csv(file.path(cleaned_folder, "Data_Insee.csv"), header = TRUE, sep=";") 
+raw_data_2 <- read.csv(file.path(cleaned_folder, "Donnee_altitude_mer.csv"), header = TRUE, sep=";") 
+raw_data_3 <- read.csv(file.path(cleaned_folder, "delinquance_reorganized.csv"), header = TRUE, sep=",") 
+raw_data_4 <- read.csv(file.path(cleaned_folder, "data_election_reorganized.csv"), header = TRUE, sep=",") 
+raw_data_5 <- read.csv(file.path(cleaned_folder, "temps-densoleillement-par-an-par-departement.csv"), header = TRUE, sep=";")
 
 cle_code_dep <- raw_data_1 %>%
   select(Code, Departement)

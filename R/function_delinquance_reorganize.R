@@ -1,6 +1,3 @@
-library(dplyr)
-library(tidyverse)
-library(here)
 delinquance_reorganize_function<-function() {
   data_delinquance <- read_delim(here::here("data","donnee-delinquance.csv"),
     delim = ";", escape_double = FALSE, trim_ws = TRUE
@@ -17,4 +14,3 @@ delinquance_reorganize_function<-function() {
 
   return(write.csv(data_delinquance, here::here("data","delinquance_reorganized.csv"), row.names = FALSE))
 }
-delinquance_reorganize_function()
