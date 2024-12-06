@@ -22,9 +22,9 @@ Imports:
     here,
     utils,
     stringr,
-    tidyverse
-Depends: 
+    tidyverse,
+    scales
+Depends:
     ggplot2
+   
 
-
-    
