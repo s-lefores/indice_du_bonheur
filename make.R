@@ -6,4 +6,4 @@ source(here::here("analyses", "1_chargement_nettoyage_data.R"))
 source(here::here("analyses", "2_rescale_variables.R"))
 
 #make report
-quarto::quarto_render(input = here::here("index.qmd"))
+quarto::quarto_render(here::here("analyses","Presentation_indice_bonheur.qmd"))
