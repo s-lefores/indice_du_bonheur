@@ -2,6 +2,11 @@ function_scaled_data<-function(){merged_data<-readr::read_csv(here::here("data",
 merged_data%>%select(-2)->merged_data
 
 scaled_data <-merged_data%>%
+  mutate(Presence_mer=case_when(
+    Longueurcote=="oui"~10,
+    Longueurcote==""~0,
+    TRUE~NA_real_
+  ))%>%
   mutate(across(-c(Code, Departement), ~ as.numeric(as.character(.))))%>%
   mutate(across(
     .cols = -c(Code, Departement), # Exclut les colonnes `Code` et `département`

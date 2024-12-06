@@ -23,7 +23,8 @@ Imports:
     utils,
     stringr,
     tidyverse,
-    scales
+    scales,
+    knitr
 Depends:
     ggplot2,
     dplyr
