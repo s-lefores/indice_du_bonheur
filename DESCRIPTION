@@ -23,4 +23,5 @@ Imports:
     here,
     readxl
 Depends: 
-    ggplot2
+    ggplot2,
+    scales
