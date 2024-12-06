@@ -1,2 +1,3 @@
-devtools ::install_deps()
+devtools::install_deps(upgrade = "never")
 devtools::load_all()
+

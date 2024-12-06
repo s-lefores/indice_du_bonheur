@@ -1,6 +1,4 @@
 
-
-
 merge_csv_files <- function() {
 
 raw_folder <- here::here("data")
@@ -36,4 +34,4 @@ merged_data <- raw_data_1 %>%
   
   return(merged_data)
 }
-merged_data
+
