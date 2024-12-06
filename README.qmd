@@ -20,20 +20,3 @@ Celles-ci peuvent etre télechargées ici
 [Data Gouv](https://www.data.gouv.fr/fr/)
 
 [Note: we love quarto dans l'équipe du bonheur, toute la doc est ici](https://quarto.org "#QuartoLove")
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
