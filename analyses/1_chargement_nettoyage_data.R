@@ -8,4 +8,4 @@ delinquance_reorganize_function()
 
 # chargement des fichiers "cleaned" et merge des tables
 
-merge_tables()
+merge_csv_files()

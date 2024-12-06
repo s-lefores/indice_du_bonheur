@@ -23,8 +23,11 @@ Imports:
     utils,
     stringr,
     tidyverse,
-    scales
+    scales,
+    knitr,
+    quarto
 Depends:
-    ggplot2
+    ggplot2,
+    dplyr
    
 
