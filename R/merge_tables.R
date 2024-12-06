@@ -27,13 +27,17 @@ raw_data_5_bis <- raw_data_5 %>%
       TRUE ~ Code  
     )
   )
-
+raw_data_3$Code[which(!is.na(as.numeric(raw_data_3$Code)))]<-
+  as.character(as.numeric(raw_data_3$Code[which(!is.na(as.numeric(raw_data_3$Code)))]))
+raw_data_4$Code[which(!is.na(as.numeric(raw_data_4$Code)))]<-
+  as.character(as.numeric(raw_data_3$Code[which(!is.na(as.numeric(raw_data_4$Code)))]))
 merged_data <- raw_data_1 %>%
-  full_join(raw_data_2) %>%
-  full_join(raw_data_3) %>%
-  full_join(raw_data_4) %>%
-  full_join(raw_data_5_bis)
-  
+  full_join(raw_data_2,by = "Code") %>%
+  full_join(raw_data_3,by = "Code") %>%
+  full_join(raw_data_4,by = "Code") %>%
+  full_join(raw_data_5_bis,by = "Code")%>%
+  mutate(Departement_name = Departement)
+
   return(merged_data)
 }
-merged_data
+##Je veux filter merge
