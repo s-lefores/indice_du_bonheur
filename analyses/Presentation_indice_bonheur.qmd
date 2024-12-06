@@ -1,0 +1,100 @@
+---
+title: "Presentation_indice_bonheur"
+format: html
+editor: visual
+warning: FALSE
+message: FALSE
+echo: FALSE
+---
+
+# Indice du bonheur \<3
+
+![](images/Happy_Smiley.png)
+
+### Objectif du projet
+
+Le but de ce projet est de generer un "indice du bonheur" en France Metropolitaine à partir de données variables extraites du Web (INSEE, data gouv,...)
+
+Celles-ci peuvent etre télechargées ici
+
+[Statistiques locales INSEE](https://statistiques-locales.insee.fr/#view=map1&c=indicator)
+
+[Data Gouv](https://www.data.gouv.fr/fr/)
+
+[Note: we love quarto dans l'équipe du bonheur, toute la doc est ici](https://quarto.org "#QuartoLove")
+
+```{r}
+#| echo: false
+
+library(knitr)
+library(readr)
+library(dplyr)
+library(sf)
+```
+
+## Fabrication de l'indice du bonheur (IDB)
+
+### Présentation du tableau de donnée. 
+
+Ce tableau et le fruit d'un pré-traitement des données brutes.
+
+Nous avons rescalé toutes les variables entre 0 et 10 afin qu'elles soient toutes comparables lors de la construction de l'indice.
+
+```{r}
+scaled_data<-read_csv(here::here("data","cleaned_data","scaled_data.csv"))%>%
+  dplyr::relocate(Departement, .after = Code)
+
+kable(head(scaled_data,5))
+
+```
+
+### Sélection des variables pertinentes pour l'indice du bonheur
+
+Voici une liste des variables : Densité de population, Nbre de Boulangerie, Nbre superette, Nbre de Medecin, Nbre lycée, Nbre célibataires, Mediane niveau de vie, Part diplome bac+5, Espérance de vie femme, Espérance de vie homme, Part de proprio dans résidence principale, Altitude max, Presence de la mer, Jour d'ensoleillement, Taux de cambriolage, Taux violence sexuelle, Pourcentage vote Melenchon, Macron, Lepen.
+
+```{r}
+final_data<-scaled_data%>%
+  select(Code,Departement,Presence_mer,Nb_jrs_enseillement,MELENCHON,MACRON,LE_PEN,Nbre_victime_Violences_sexuelles,Nbre_infraction_Cambriolages_de_logement,Altitude_max,Superette_epicerie_en_nombre_2023,Esperance_de_vie_des_femmes_à_60_ans_2023,Esperance_de_vie_des_hommes_à_60_ans_2023,Medecin_generaliste_en_nombre_2023,Mediane_du_niveau_de_vie_2021,Part_des_locataires_dans_les_res_principales_2021,Lycee_en_nombre_2023,Boulangeriepâtisserie_en_nombre_2023,Medecin_generaliste_en_nombre_2023,Part_des_pers_de_15_ans_ou_._celibataires_2021,Nb_de_familles_2021,Nb_jrs_enseillement,Part_des_diplômes_d.un_BAC.5_ou_plus_dans_la_pop_non_scolarisee_de_15_ans_ou_._2021)
+```
+
+**Choix objectif de l'impact des variables:**
+
++----------------------------------------------+--------------------------------------+
+| Impact positif                               | Impact négatif                       |
++==============================================+======================================+
+| Nbre boulangerie , superette, médecin, lycée | Densité de population                |
++----------------------------------------------+--------------------------------------+
+| Nbre de célibataire                          | Cambriolage,                         |
+|                                              |                                      |
+|                                              | 2 \* violence sexuelle               |
++----------------------------------------------+--------------------------------------+
+| Médiane niveau de vie                        | Ultra libéraux                       |
++----------------------------------------------+--------------------------------------+
+| Niveau éducation                             | 2 \* Facho                           |
++----------------------------------------------+--------------------------------------+
+| Espérance de vie homme/femme                 |                                      |
++----------------------------------------------+--------------------------------------+
+| Accès à la propriété                         |                                      |
++----------------------------------------------+--------------------------------------+
+| Altitude max                                 |                                      |
++----------------------------------------------+--------------------------------------+
+| Présence de la mer                           |                                      |
++----------------------------------------------+--------------------------------------+
+| Jour ensoleillement                          |                                      |
++----------------------------------------------+--------------------------------------+
+| Gauche                                       |                                      |
++----------------------------------------------+--------------------------------------+
+
+: Impact de chaque variable sur l'IDB
+
+```{r}
+final_data%>%
+  mutate(IDBB=Boulangeriepâtisserie_en_nombre_2023+Superette_epicerie_en_nombre_2023+Medecin_generaliste_en_nombre_2023+Lycee_en_nombre_2023+Part_des_pers_de_15_ans_ou_._celibataires_2021+Mediane_du_niveau_de_vie_2021+Part_des_diplômes_d.un_BAC.5_ou_plus_dans_la_pop_non_scolarisee_de_15_ans_ou_._2021+Esperance_de_vie_des_hommes_à_60_ans_2023+Esperance_de_vie_des_femmes_à_60_ans_2023-Part_des_locataires_dans_les_res_principales_2021+Altitude_max+Presence_mer+Nb_jrs_enseillement+MELENCHON-3*Nb_de_familles_2021-Nbre_infraction_Cambriolages_de_logement-2*Nbre_victime_Violences_sexuelles-MACRON-2*LE_PEN,IDB=Part_des_pers_de_15_ans_ou_._celibataires_2021+Mediane_du_niveau_de_vie_2021+Part_des_diplômes_d.un_BAC.5_ou_plus_dans_la_pop_non_scolarisee_de_15_ans_ou_._2021+Esperance_de_vie_des_hommes_à_60_ans_2023+Esperance_de_vie_des_femmes_à_60_ans_2023-Part_des_locataires_dans_les_res_principales_2021+Altitude_max+Presence_mer+Nb_jrs_enseillement+MELENCHON-Nbre_infraction_Cambriolages_de_logement-2*Nbre_victime_Violences_sexuelles-MACRON-2*LE_PEN)->final_data
+
+```
+
+### Cartographie de l'IDB
+
+```{r}
+
+```
