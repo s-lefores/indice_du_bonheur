@@ -25,6 +25,7 @@ Imports:
     tidyverse,
     scales
 Depends:
-    ggplot2
+    ggplot2,
+    dplyr
    
 
