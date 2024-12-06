@@ -37,7 +37,6 @@ merged_data <- raw_data_1 %>%
   full_join(raw_data_4,by = "Code") %>%
   full_join(raw_data_5_bis,by = "Code")%>%
   mutate(Departement_name = Departement)
-
+  write.csv(merged_data, here::here("data","cleaned_data","merged_data.csv"), row.names = FALSE)
   return(merged_data)
 }
-##Je veux filter merge
