@@ -1,4 +1,4 @@
-function_scaled_data<-function(){merged_data<-read_csv(here::here("data","cleaned_data","merged_data.csv"))
+function_scaled_data<-function(){merged_data<-readr::read_csv(here::here("data","cleaned_data","merged_data.csv"))
 merged_data%>%select(-2)->merged_data
 
 scaled_data <-merged_data%>%
