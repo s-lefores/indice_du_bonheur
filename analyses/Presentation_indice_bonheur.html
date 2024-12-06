@@ -73,6 +73,568 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://www.data.gouv.fr/fr/">Data Gouv</a></p>
 <p><a href="https://quarto.org" title="#QuartoLove">Note: we love quarto dans l’équipe du bonheur, toute la doc est ici</a></p>
 </section>
+<section id="fabrication-de-lindice-du-bonheur-idb" class="level2">
+<h2 class="anchored" data-anchor-id="fabrication-de-lindice-du-bonheur-idb">Fabrication de l’indice du bonheur (IDB)</h2>
+<section id="présentation-du-tableau-de-donnée." class="level3">
+<h3 class="anchored" data-anchor-id="présentation-du-tableau-de-donnée.">Présentation du tableau de donnée.</h3>
+<p>Ce tableau et le fruit d’un pré-traitement des données brutes.</p>
+<p>Nous avons rescalé toutes les variables entre 0 et 10 afin qu’elles soient toutes comparables lors de la construction de l’indice.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Code</th>
+<th style="text-align: left;">Departement</th>
+<th style="text-align: right;">Creations_d.entreprises_en_nombre_2023</th>
+<th style="text-align: right;">Residences_principales_2021</th>
+<th style="text-align: right;">Lycee_en_nombre_2023</th>
+<th style="text-align: right;">Boulangeriepâtisserie_en_nombre_2023</th>
+<th style="text-align: right;">Police_Gendarmerie_en_nombre_2023</th>
+<th style="text-align: right;">Medecin_generaliste_en_nombre_2023</th>
+<th style="text-align: right;">Nb_de_familles_2021</th>
+<th style="text-align: right;">Nb_de_familles_monoparentales_2021</th>
+<th style="text-align: right;">Nombre_de_mariages_2021</th>
+<th style="text-align: right;">Taux_de_chômage_annuel_moyen_2023</th>
+<th style="text-align: right;">Part_des_pers_de_15_ans_ou_._celibataires_2021</th>
+<th style="text-align: right;">Part_des_personnes_de_15_ans_ou_._pacsees_2021</th>
+<th style="text-align: right;">Part_des_personnes_de_15_ans_ou_._mariees_2021</th>
+<th style="text-align: right;">Part_des_pers_de_15_ans_ou_._divorcees_2021</th>
+<th style="text-align: right;">Mediane_du_niveau_de_vie_2021</th>
+<th style="text-align: right;">Part_des_indemnites_de_chômage_dans_le_rev_disp_2021</th>
+<th style="text-align: right;">Taux_de_pauvrete_moins_de_30_ans_2021</th>
+<th style="text-align: right;">Taux_de_pauvrete_30_ans_à_39_ans_2021</th>
+<th style="text-align: right;">Taux_de_pauvrete_40_ans_à_49_ans_2021</th>
+<th style="text-align: right;">Taux_de_pauvrete_50_ans_à_59_ans_2021</th>
+<th style="text-align: right;">Taux_de_pauvrete_60_ans_à_74_ans_2021</th>
+<th style="text-align: right;">Taux_de_pauvrete_75_ans_ou_plus_2021</th>
+<th style="text-align: right;">Taux_de_pauvrete_familles_monoparentales_2021</th>
+<th style="text-align: right;">Nb_de_pers_non_scolarisees_de_15_ans_ou_._2021</th>
+<th style="text-align: right;">Part_des_diplômes_d.un_BAC.5_ou_plus_dans_la_pop_non_scolarisee_de_15_ans_ou_._2021</th>
+<th style="text-align: right;">Part_des_proprietaires_dans_les_res_principales_2021</th>
+<th style="text-align: right;">Part_des_locataires_dans_les_res_principales_2021</th>
+<th style="text-align: right;">Esperance_de_vie_des_femmes_à_60_ans_2023</th>
+<th style="text-align: right;">Esperance_de_vie_des_hommes_à_60_ans_2023</th>
+<th style="text-align: right;">Taux_de_mortalite_standardise_des_0_à_64_ans_2023</th>
+<th style="text-align: right;">Taux_de_mortalite_standardise_des_65_ans_ou_._2023</th>
+<th style="text-align: right;">Superette_epicerie_en_nombre_2023</th>
+<th style="text-align: left;">Departement.y</th>
+<th style="text-align: right;">Altitude_min</th>
+<th style="text-align: right;">Altitude_max</th>
+<th style="text-align: left;">Longueurcote</th>
+<th style="text-align: right;">Nbre_victime_Autres_coups_et_blessures_volontaires</th>
+<th style="text-align: right;">Nbre_infraction_Cambriolages_de_logement</th>
+<th style="text-align: right;">Nbre_victime_Coups_et_blessures_volontaires</th>
+<th style="text-align: right;">Nbre_victime_Coups_et_blessures_volontaires_intrafamiliaux</th>
+<th style="text-align: right;">Nbre_infraction_Destructions_et_dégradations_volontaires</th>
+<th style="text-align: right;">Nbre_victime_Escroqueries</th>
+<th style="text-align: right;">Nbre_victime_Homicides</th>
+<th style="text-align: right;">Nbre_Mis.en.cause_Trafic_de_stupéfiants</th>
+<th style="text-align: right;">Nbre_Mis.en.cause_Usage_de_stupéfiants</th>
+<th style="text-align: right;">Nbre_victime_Violences_sexuelles</th>
+<th style="text-align: right;">Nbre_infraction_Vols_avec_armes</th>
+<th style="text-align: right;">Nbre_véhicule_Vols_d.accessoires_sur_véhicules</th>
+<th style="text-align: right;">Nbre_véhicule_Vols_dans_les_véhicules</th>
+<th style="text-align: right;">Nbre_véhicule_Vols_de_véhicules</th>
+<th style="text-align: right;">Nbre_victime.entendue_Vols_sans_violence_contre_des_personnes</th>
+<th style="text-align: right;">Nbre_infraction_Vols_violents_sans_arme</th>
+<th style="text-align: right;">DUPONT_AIGNAN</th>
+<th style="text-align: right;">POUTOU</th>
+<th style="text-align: right;">PECRESSE</th>
+<th style="text-align: right;">JADOT</th>
+<th style="text-align: right;">HIDALGO</th>
+<th style="text-align: right;">LE_PEN</th>
+<th style="text-align: right;">MACRON</th>
+<th style="text-align: right;">MELENCHON</th>
+<th style="text-align: right;">ROUSSEL</th>
+<th style="text-align: right;">ZEMMOUR</th>
+<th style="text-align: right;">Nb_jrs_enseillement</th>
+<th style="text-align: left;">Departement_name</th>
+<th style="text-align: right;">Presence_mer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Ain</td>
+<td style="text-align: right;">0.8357262</td>
+<td style="text-align: right;">2.2601585</td>
+<td style="text-align: right;">1.1764706</td>
+<td style="text-align: right;">1.7315814</td>
+<td style="text-align: right;">3.181818</td>
+<td style="text-align: right;">1.4753436</td>
+<td style="text-align: right;">2.4404739</td>
+<td style="text-align: right;">1.8223090</td>
+<td style="text-align: right;">2.3463030</td>
+<td style="text-align: right;">1.666667</td>
+<td style="text-align: right;">1.421320</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">8.654971</td>
+<td style="text-align: right;">4.594595</td>
+<td style="text-align: right;">5.406162</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">1.279621</td>
+<td style="text-align: right;">1.204189</td>
+<td style="text-align: right;">1.125541</td>
+<td style="text-align: right;">0.591133</td>
+<td style="text-align: right;">0.7228916</td>
+<td style="text-align: right;">1.679389</td>
+<td style="text-align: right;">2.15</td>
+<td style="text-align: right;">2.3853325</td>
+<td style="text-align: right;">1.5549598</td>
+<td style="text-align: right;">7.525773</td>
+<td style="text-align: right;">2.577904</td>
+<td style="text-align: right;">5.714286</td>
+<td style="text-align: right;">7.5675676</td>
+<td style="text-align: right;">1.428571</td>
+<td style="text-align: right;">4.842767</td>
+<td style="text-align: right;">0.6252489</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">3.599138</td>
+<td style="text-align: right;">0.9972531</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0.8197694</td>
+<td style="text-align: right;">6.2783349</td>
+<td style="text-align: right;">0.5539987</td>
+<td style="text-align: right;">0.7456868</td>
+<td style="text-align: right;">2.138532</td>
+<td style="text-align: right;">1.1898969</td>
+<td style="text-align: right;">2.118448</td>
+<td style="text-align: right;">0.7972247</td>
+<td style="text-align: right;">1.349619</td>
+<td style="text-align: right;">1.213675</td>
+<td style="text-align: right;">1.1399786</td>
+<td style="text-align: right;">3.7396905</td>
+<td style="text-align: right;">1.6611000</td>
+<td style="text-align: right;">2.626643</td>
+<td style="text-align: right;">0.2237484</td>
+<td style="text-align: right;">0.1357811</td>
+<td style="text-align: right;">6.729323</td>
+<td style="text-align: right;">2.236842</td>
+<td style="text-align: right;">4.095745</td>
+<td style="text-align: right;">4.4874275</td>
+<td style="text-align: right;">2.8793774</td>
+<td style="text-align: right;">6.084248</td>
+<td style="text-align: right;">4.586207</td>
+<td style="text-align: right;">1.0217945</td>
+<td style="text-align: right;">1.78125</td>
+<td style="text-align: right;">4.129098</td>
+<td style="text-align: right;">5.136986</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Aisne</td>
+<td style="text-align: right;">0.4257348</td>
+<td style="text-align: right;">1.7854250</td>
+<td style="text-align: right;">1.5837104</td>
+<td style="text-align: right;">1.1637729</td>
+<td style="text-align: right;">3.181818</td>
+<td style="text-align: right;">1.2206952</td>
+<td style="text-align: right;">1.8580320</td>
+<td style="text-align: right;">1.6891219</td>
+<td style="text-align: right;">1.5457858</td>
+<td style="text-align: right;">8.076923</td>
+<td style="text-align: right;">2.385787</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">5.906433</td>
+<td style="text-align: right;">3.243243</td>
+<td style="text-align: right;">1.774043</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">8.578199</td>
+<td style="text-align: right;">7.225131</td>
+<td style="text-align: right;">5.064935</td>
+<td style="text-align: right;">4.236453</td>
+<td style="text-align: right;">3.8554217</td>
+<td style="text-align: right;">3.587786</td>
+<td style="text-align: right;">9.15</td>
+<td style="text-align: right;">1.8747349</td>
+<td style="text-align: right;">0.1340483</td>
+<td style="text-align: right;">7.293814</td>
+<td style="text-align: right;">2.832861</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">0.8108108</td>
+<td style="text-align: right;">6.428571</td>
+<td style="text-align: right;">9.433962</td>
+<td style="text-align: right;">0.4221426</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0.862069</td>
+<td style="text-align: right;">0.0102864</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">3.3535555</td>
+<td style="text-align: right;">4.9998362</td>
+<td style="text-align: right;">4.5061374</td>
+<td style="text-align: right;">5.4557094</td>
+<td style="text-align: right;">5.619068</td>
+<td style="text-align: right;">0.8999639</td>
+<td style="text-align: right;">4.489811</td>
+<td style="text-align: right;">0.6185197</td>
+<td style="text-align: right;">2.471215</td>
+<td style="text-align: right;">5.876430</td>
+<td style="text-align: right;">1.5510311</td>
+<td style="text-align: right;">4.2069957</td>
+<td style="text-align: right;">2.0179566</td>
+<td style="text-align: right;">3.095669</td>
+<td style="text-align: right;">0.2959588</td>
+<td style="text-align: right;">0.3610458</td>
+<td style="text-align: right;">4.774436</td>
+<td style="text-align: right;">4.210526</td>
+<td style="text-align: right;">2.021277</td>
+<td style="text-align: right;">0.4255319</td>
+<td style="text-align: right;">0.6614786</td>
+<td style="text-align: right;">10.000000</td>
+<td style="text-align: right;">1.367816</td>
+<td style="text-align: right;">0.4896688</td>
+<td style="text-align: right;">3.21875</td>
+<td style="text-align: right;">2.694672</td>
+<td style="text-align: right;">2.397260</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Allier</td>
+<td style="text-align: right;">0.2915840</td>
+<td style="text-align: right;">1.1580865</td>
+<td style="text-align: right;">0.8144796</td>
+<td style="text-align: right;">0.8728297</td>
+<td style="text-align: right;">1.909091</td>
+<td style="text-align: right;">0.8407437</td>
+<td style="text-align: right;">1.0492554</td>
+<td style="text-align: right;">0.8537875</td>
+<td style="text-align: right;">0.9392265</td>
+<td style="text-align: right;">4.615385</td>
+<td style="text-align: right;">1.928934</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">5.964912</td>
+<td style="text-align: right;">7.567568</td>
+<td style="text-align: right;">2.315593</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">5.924171</td>
+<td style="text-align: right;">5.759162</td>
+<td style="text-align: right;">3.809524</td>
+<td style="text-align: right;">3.448276</td>
+<td style="text-align: right;">3.0120482</td>
+<td style="text-align: right;">4.656489</td>
+<td style="text-align: right;">7.40</td>
+<td style="text-align: right;">1.1400999</td>
+<td style="text-align: right;">0.3217158</td>
+<td style="text-align: right;">8.195876</td>
+<td style="text-align: right;">1.756374</td>
+<td style="text-align: right;">3.214286</td>
+<td style="text-align: right;">4.0540541</td>
+<td style="text-align: right;">5.714286</td>
+<td style="text-align: right;">5.723270</td>
+<td style="text-align: right;">0.5774592</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">3.491379</td>
+<td style="text-align: right;">0.7454120</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">1.8872228</td>
+<td style="text-align: right;">3.0051419</td>
+<td style="text-align: right;">1.7893537</td>
+<td style="text-align: right;">1.8720967</td>
+<td style="text-align: right;">4.834529</td>
+<td style="text-align: right;">1.5009966</td>
+<td style="text-align: right;">2.221975</td>
+<td style="text-align: right;">1.3225099</td>
+<td style="text-align: right;">3.352191</td>
+<td style="text-align: right;">2.748273</td>
+<td style="text-align: right;">1.1264010</td>
+<td style="text-align: right;">1.4841684</td>
+<td style="text-align: right;">0.5915738</td>
+<td style="text-align: right;">1.292059</td>
+<td style="text-align: right;">0.3191378</td>
+<td style="text-align: right;">0.2247435</td>
+<td style="text-align: right;">5.112782</td>
+<td style="text-align: right;">4.342105</td>
+<td style="text-align: right;">4.574468</td>
+<td style="text-align: right;">1.5087041</td>
+<td style="text-align: right;">3.1517510</td>
+<td style="text-align: right;">6.383862</td>
+<td style="text-align: right;">4.034483</td>
+<td style="text-align: right;">0.8264931</td>
+<td style="text-align: right;">9.87500</td>
+<td style="text-align: right;">2.469262</td>
+<td style="text-align: right;">3.698630</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Alpes de Haute Provence</td>
+<td style="text-align: right;">0.1920241</td>
+<td style="text-align: right;">0.4019910</td>
+<td style="text-align: right;">0.0904977</td>
+<td style="text-align: right;">0.4458001</td>
+<td style="text-align: right;">1.818182</td>
+<td style="text-align: right;">0.4001617</td>
+<td style="text-align: right;">0.3900849</td>
+<td style="text-align: right;">0.4408688</td>
+<td style="text-align: right;">0.4478665</td>
+<td style="text-align: right;">5.000000</td>
+<td style="text-align: right;">1.573604</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">6.374269</td>
+<td style="text-align: right;">9.729730</td>
+<td style="text-align: right;">2.586368</td>
+<td style="text-align: right;">4.8</td>
+<td style="text-align: right;">5.639810</td>
+<td style="text-align: right;">5.863874</td>
+<td style="text-align: right;">4.588745</td>
+<td style="text-align: right;">3.990148</td>
+<td style="text-align: right;">3.9759036</td>
+<td style="text-align: right;">5.190840</td>
+<td style="text-align: right;">7.20</td>
+<td style="text-align: right;">0.3929928</td>
+<td style="text-align: right;">1.0991957</td>
+<td style="text-align: right;">6.701031</td>
+<td style="text-align: right;">2.889518</td>
+<td style="text-align: right;">5.000000</td>
+<td style="text-align: right;">6.7567568</td>
+<td style="text-align: right;">3.571429</td>
+<td style="text-align: right;">4.968553</td>
+<td style="text-align: right;">0.4778973</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">5.603448</td>
+<td style="text-align: right;">0.1923437</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">3.0816208</td>
+<td style="text-align: right;">2.8811277</td>
+<td style="text-align: right;">3.4333802</td>
+<td style="text-align: right;">3.6551281</td>
+<td style="text-align: right;">5.676281</td>
+<td style="text-align: right;">1.8059894</td>
+<td style="text-align: right;">4.085972</td>
+<td style="text-align: right;">0.7998536</td>
+<td style="text-align: right;">6.644152</td>
+<td style="text-align: right;">2.841681</td>
+<td style="text-align: right;">1.1028831</td>
+<td style="text-align: right;">1.9243539</td>
+<td style="text-align: right;">3.3974590</td>
+<td style="text-align: right;">2.231107</td>
+<td style="text-align: right;">0.6199031</td>
+<td style="text-align: right;">0.3481701</td>
+<td style="text-align: right;">6.315790</td>
+<td style="text-align: right;">5.394737</td>
+<td style="text-align: right;">1.773050</td>
+<td style="text-align: right;">3.1914894</td>
+<td style="text-align: right;">1.9066148</td>
+<td style="text-align: right;">6.336399</td>
+<td style="text-align: right;">1.034483</td>
+<td style="text-align: right;">2.5049533</td>
+<td style="text-align: right;">5.00000</td>
+<td style="text-align: right;">4.057377</td>
+<td style="text-align: right;">9.178082</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Hautes-Alpes</td>
+<td style="text-align: right;">0.1608701</td>
+<td style="text-align: right;">0.2923868</td>
+<td style="text-align: right;">0.0452489</td>
+<td style="text-align: right;">0.5161896</td>
+<td style="text-align: right;">1.090909</td>
+<td style="text-align: right;">0.4527082</td>
+<td style="text-align: right;">0.2762082</td>
+<td style="text-align: right;">0.2610468</td>
+<td style="text-align: right;">0.3655813</td>
+<td style="text-align: right;">3.076923</td>
+<td style="text-align: right;">1.624365</td>
+<td style="text-align: right;">5.6</td>
+<td style="text-align: right;">6.081871</td>
+<td style="text-align: right;">9.189189</td>
+<td style="text-align: right;">2.791783</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;">4.597156</td>
+<td style="text-align: right;">4.136126</td>
+<td style="text-align: right;">3.203463</td>
+<td style="text-align: right;">2.758621</td>
+<td style="text-align: right;">2.5301205</td>
+<td style="text-align: right;">3.893130</td>
+<td style="text-align: right;">5.35</td>
+<td style="text-align: right;">0.2842013</td>
+<td style="text-align: right;">1.1796247</td>
+<td style="text-align: right;">7.242268</td>
+<td style="text-align: right;">2.294618</td>
+<td style="text-align: right;">8.214286</td>
+<td style="text-align: right;">7.5675676</td>
+<td style="text-align: right;">2.142857</td>
+<td style="text-align: right;">2.389937</td>
+<td style="text-align: right;">0.2947033</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">10.000000</td>
+<td style="text-align: right;">0.2327878</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">2.8589107</td>
+<td style="text-align: right;">0.3560873</td>
+<td style="text-align: right;">3.2123810</td>
+<td style="text-align: right;">3.4934804</td>
+<td style="text-align: right;">5.113892</td>
+<td style="text-align: right;">1.2129392</td>
+<td style="text-align: right;">2.464324</td>
+<td style="text-align: right;">1.4388936</td>
+<td style="text-align: right;">8.051161</td>
+<td style="text-align: right;">4.115479</td>
+<td style="text-align: right;">0.3614108</td>
+<td style="text-align: right;">0.5924455</td>
+<td style="text-align: right;">1.2006195</td>
+<td style="text-align: right;">1.281089</td>
+<td style="text-align: right;">0.7990667</td>
+<td style="text-align: right;">0.2709440</td>
+<td style="text-align: right;">5.902256</td>
+<td style="text-align: right;">5.921053</td>
+<td style="text-align: right;">4.007092</td>
+<td style="text-align: right;">6.5183752</td>
+<td style="text-align: right;">2.8793774</td>
+<td style="text-align: right;">5.132008</td>
+<td style="text-align: right;">2.339081</td>
+<td style="text-align: right;">2.5785451</td>
+<td style="text-align: right;">3.18750</td>
+<td style="text-align: right;">2.981557</td>
+<td style="text-align: right;">8.561644</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sélection-des-variables-pertinentes-pour-lindice-du-bonheur" class="level3">
+<h3 class="anchored" data-anchor-id="sélection-des-variables-pertinentes-pour-lindice-du-bonheur">Sélection des variables pertinentes pour l’indice du bonheur</h3>
+<p>Voici une liste des variables : Densité de population, Nbre de Boulangerie, Nbre superette, Nbre de Medecin, Nbre lycée, Nbre célibataires, Mediane niveau de vie, Part diplome bac+5, Espérance de vie femme, Espérance de vie homme, Part de proprio dans résidence principale, Altitude max, Presence de la mer, Jour d’ensoleillement, Taux de cambriolage, Taux violence sexuelle, Pourcentage vote Melenchon, Macron, Lepen.</p>
+<p><strong>Voici l’équation du bonheur :</strong></p>
+<table class="caption-top table">
+<caption>Impact de chaque variable sur l’IDB</caption>
+<colgroup>
+<col style="width: 54%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Impact positif</th>
+<th>Impact négatif</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nbre boulangerie , superette, médecin, lycée</td>
+<td>Densité de population</td>
+</tr>
+<tr class="even">
+<td>Nbre de célibataire</td>
+<td><p>Cambriolage,</p>
+<p>2 * violence sexuelle</p></td>
+</tr>
+<tr class="odd">
+<td>Médiane niveau de vie</td>
+<td>Ultra libéraux</td>
+</tr>
+<tr class="even">
+<td>Niveau éducation</td>
+<td>2 * Facho</td>
+</tr>
+<tr class="odd">
+<td>Espérance de vie homme/femme</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Accès à la propriété</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Altitude max</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Présence de la mer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Jour ensoleillement</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Gauche</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 </section>
 
 </main>
