@@ -24,8 +24,10 @@ Imports:
     stringr,
     tidyverse,
     scales,
-    knitr
+    knitr,
+    quarto
 Depends:
-    ggplot2
+    ggplot2,
+    dplyr
    
 
