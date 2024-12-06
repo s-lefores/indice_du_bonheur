@@ -11,7 +11,7 @@ editor: visual
 
 ### Objectif du projet
 
-Le but de ce projet est de generer un "indice du bonheur" à partir de données variables extraites du Web (INSEE, data gouv,...)
+Le but de ce projet est de generer un "indice du bonheur" en France Metropolitaine à partir de données variables extraites du Web (INSEE, data gouv,...)
 
 Celles-ci peuvent etre télechargées ici
 
